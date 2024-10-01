@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-info {
+            flex: 3;
+            font-size: 18px;
+            color: #555;
+        }
+        .product-info h3 {
+            color: #007bff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            flex: 1;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            text-align: right;
+        }
+        .product-description {
+            font-size: 14px;
+            color: #777;
+        }
+        .detail-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .detail-button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .product-card {
+                flex-direction: column;
+                text-align: left;
+            }
+            .product-price {
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product List</h1>
+        {% for product in products %}
+        <div class="product-card">
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p class="product-description">{{ product.description }}</p>
+                <a href="/product/detail?id={{ product.id }}" class="detail-button">View Details</a>
+            </div>
+            <div class="product-price">${{ product.price }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
