@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for Responsive Design and Character Encoding -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
+    <title>Welcome to Our Site</title>
+    <!-- CSS Styles -->
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+        /* Header Styles */
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+        }
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+        .menu a:hover {
+            color: #dcdcdc;
+        }
+        /* Main Content Styles */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .hero p {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .hero .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .hero .btn {
+            padding: 14px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.2s;
+        }
+        .btn-login {
+            background-color: #007bff;
+        }
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+        .btn-register {
+            background-color: #28a745;
+        }
+        .btn-register:hover {
+            background-color: #1e7e34;
+        }
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 20px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .menu {
+                flex-direction: column;
+                width: 100%;
+            }
+            .menu a {
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">MyWebsite</div>
+            <div class="menu">
+                <a href="/">Home</a>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                <a href="/products">Products</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <h1>Welcome to MyWebsite</h1>
+            <p>Your journey begins here.</p>
+            <div class="buttons">
+                <a href="/login" class="btn btn-login">Login</a>
+                <a href="/register" class="btn btn-register">Register</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2023 MyWebsite. All rights reserved.
+    </footer>
+
+</body>
+</html>

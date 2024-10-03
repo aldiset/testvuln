@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
+    <title>Product List with Search</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +17,17 @@
         h1 {
             text-align: center;
             color: #333;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
         .product-card {
             background-color: #fff;
@@ -76,16 +87,36 @@
 <body>
     <div class="container">
         <h1>Product List</h1>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <form method="GET" action="/products">
+                <input type="text" name="s" placeholder="Search products..." value="{{ search_query }}">
+            </form>
+        </div>
+
+        <!-- Product List -->
+        {% if products %}
         {% for product in products %}
         <div class="product-card">
             <div class="product-info">
                 <h3>{{ product.name }}</h3>
                 <p class="product-description">{{ product.description }}</p>
-                <a href="/product/detail?id={{ product.id }}" class="detail-button">View Details</a>
+                <a href="/product?id={{ product.id }}" class="detail-button">View Details</a>
             </div>
             <div class="product-price">${{ product.price }}</div>
         </div>
         {% endfor %}
+        {% else %}
+        <p>No products found for your search: "{{ search_query }}"</p>
+        {% endif %}
     </div>
+
+    <script>
+        // If you need to manipulate the search bar's behavior with JavaScript
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('s');
+        document.querySelector('input[name="s"]').value = searchQuery || '';
+    </script>
 </body>
 </html>

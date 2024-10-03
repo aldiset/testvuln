@@ -1,16 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <style>
+        body {
+            background-color: #fafafa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 12px;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #262626;
+        }
+        .input-field {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 12px 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 6px;
+            background: #fafafa;
+            font-size: 14px;
+        }
+        .input-field input:focus {
+            outline: none;
+            border-color: #a8a8a8;
+        }
+        .btn {
+            width: 100%;
+            background-color: #0095f6;
+            border: none;
+            padding: 12px 0;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #007ac1;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+        .footer a {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="post" action="/register">
-        <label>Full Name:</label><br>
-        <input type="text" name="fullname" placeholder="Full Name"><br>
-        <label>Email:</label><br>
-        <input type="email" name="email" placeholder="Email"><br>
-        <button type="submit">Register</button>
-    </form>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form method="post" action="/register">
+            <div class="input-field">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+            </div>
+            <div class="input-field">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <div class="footer">
+            Have an account? <a href="/login">Log in</a>
+        </div>
+    </div>
+
 </body>
 </html>

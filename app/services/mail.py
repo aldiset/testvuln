@@ -1,9 +1,14 @@
+import os
+from dotenv import load_dotenv
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 from pydantic import EmailStr
+from jinja2 import Template
+
+load_dotenv()
 
 conf = ConnectionConfig(
-    MAIL_USERNAME="16f7b6f0d7151f",
-    MAIL_PASSWORD="cd2bd08a6121c9",
+    MAIL_USERNAME=os.getenv("MAIL_USERNAME"),
+    MAIL_PASSWORD=os.getenv("MAIL_PASSWORD"),
     MAIL_FROM="mail@example.com",
     MAIL_PORT=2525,
     MAIL_SERVER="sandbox.smtp.mailtrap.io",
@@ -12,11 +17,17 @@ conf = ConnectionConfig(
 )
 
 async def send_registration_email(fullname: str, email: EmailStr):
+    with open("app/templates/mail.html") as f:
+        template_content = f.read()
+
+    template = Template(template_content)
+    rendered_html = template.render(fullname=fullname)
+
     message = MessageSchema(
         subject="Registration Confirmation",
         recipients=[email],
-        body=f"Hi {fullname},\n\nYou have successfully registered.\n\nThanks!",
-        subtype="plain"
+        body=rendered_html,  
+        subtype="html" 
     )
 
     fm = FastMail(conf)

@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "*"
 jinja2 = "*"
 uvicorn = "*"
 fastapi-mail = "*"
 python-multipart = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
+fastapi = {extras = ["all"], version = "*"}
+python-dotenv = "*"
 
 [dev-packages]
 
