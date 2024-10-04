@@ -1,3 +1,4 @@
+from uvicorn import run
 from fastapi import FastAPI
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -7,3 +8,6 @@ app = FastAPI()
 
 app.add_middleware(SessionMiddleware, secret_key="test")
 app.include_router(user_router)
+
+if __name__ == '__main__':
+    run(app=app)
