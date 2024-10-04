@@ -1,13 +1,14 @@
+import os
 from dotenv import load_dotenv
+from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 from pydantic import EmailStr
 from jinja2 import Template
-from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 
 load_dotenv()
 
 conf = ConnectionConfig(
-    MAIL_USERNAME="16f7b6f0d7151f",
-    MAIL_PASSWORD="cd2bd08a6121c9",
+    MAIL_USERNAME=os.getenv("MAIL_USERNAME"),
+    MAIL_PASSWORD=os.getenv("MAIL_PASSWORD"),
     MAIL_FROM="mail@example.com",
     MAIL_PORT=2525,
     MAIL_SERVER="sandbox.smtp.mailtrap.io",
